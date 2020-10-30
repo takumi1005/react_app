@@ -3,46 +3,51 @@ import Rect from './Rect';
 import './App.css';
 import { buildQueries } from '@testing-library/react';
 
-let data ={ title: 'Title', message: 'this is sample message.'};
+let theme = {
+  light: {
+    backgroundColor: "#eef",
+    color: "#006",
+    padding: "10px"
+  },
+  dark: {
+    backgroundColor: "#006",
+    color: "#eef",
+    padding: "10px"
+  }
+}
 
-const SampleContext = React.createContext(data);
+const ThemeContext = React.createContext(theme.dark);
 
 class App extends Component {
-  newData = {title: '新しいタイトル', message: '新しいメッセージ'};
+  static contextType = ThemeContext;
   render() {
     return (
-      <div>
-        <h1>Context</h1>
-        <Title />
-        <Message />
-        <SampleContext.Provider value={this.newData}>
-          <Title />
-          <Message />
-        </SampleContext.Provider>
-        <Title />
-        <Message />
+      <div style={this.context}>
+        <Title value="Content page" />
+        <Message value="this is content sample." />
+        <Message value="これはサンプルテーマです" />
       </div>
     )
   }
 }
 
 class Title extends Component {
-  static contextType = SampleContext;
+  static contextType = ThemeContext;
   render() {
     return (
       <div>
-        <h2>{this.context.title}</h2>
+        <h2 style={this.context}>{this.props.value}</h2>
       </div>
     );
   }
 }
 
 class Message extends Component {
-  static contextType = SampleContext;
+  static contextType = ThemeContext;
   render() {
     return (
       <div>
-        <p>{this.context.message}</p>
+        <p style={this.context}>{this.props.value}</p>
       </div>
     )
   }
