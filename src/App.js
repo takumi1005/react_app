@@ -4,7 +4,7 @@ import './App.css';
 import Memo from './memo/Memo';
 import AddForm from './memo/AddForm';
 import FindForm from './memo/FindForm';
-import DelForm from './memo/DelForm'
+import DelForm from './memo/DelForm';
 
 // Appコンポーネント
 class App extends Component {

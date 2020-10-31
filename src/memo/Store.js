@@ -1,7 +1,7 @@
 import { createStore } from 'redux';
 
 const initData = {
-  data: [{message: 'sample data', created: new Data()}],
+  data: [{message: 'sample data', created: new Date()}],
   message: 'please type message:',
   mode: 'default',
   fdata: []
@@ -82,12 +82,12 @@ export function addMemo(text) {
 export function deleteMemo(num) {
   return {
     type: 'DELETE',
-    message: num
+    index: num
   }
 }
 
 // メモ検索のアクション
-export function deleteMemo(text) {
+export function findMemo(text) {
   return {
     type: 'FIND',
     message: text

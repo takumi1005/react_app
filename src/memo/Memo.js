@@ -41,4 +41,4 @@ class Memo extends Component {
   }
 }
 
-export default connect((state) => store)(Memo);
+export default connect((state) => state)(Memo);
