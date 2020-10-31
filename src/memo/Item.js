@@ -26,13 +26,11 @@ class Item extends Component {
     minWidth: "80px"
   }
   render() {
-    let d = this.props.value.created;
-    let f = d.getHours() + '+' + d.getMinutes() + ':' + d.getSeconds();
     return (
       <tr>
         <th style={this.th}>No. {this.props.index}</th>
         <td style={this.td}>{this.props.value.message}</td>
-        <td style={this.data}>{f}</td>
+        <td style={this.data}>{this.props.value.created}</td>
       </tr>
     )
   }
