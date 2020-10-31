@@ -11,6 +11,7 @@ class App extends Component {
   td = {
     width: "250px"
   }
+  // eslint-disable-next-line
   constructor(props) {
     super(props);
   }
